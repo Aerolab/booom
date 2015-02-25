@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "Booom! - Dribbble Enhancement Suite",
+  "short_name": "Booom for Dribbble",
+  "description": "A better UI for Dribbble.com to make life easier for designers.",
+  
+  "author": "Aerolab",
+  "homepage_url": "http://aerolab.github.io/booom",
+  "version": "0.1.13",
+
+  "icons": {  "16": "icons/icon_16.png",
+              "48": "icons/icon_48.png",
+              "128": "icons/icon_128.png",
+              "512": "icons/icon_512.png" },
+
+  "permissions": [
+    "https://dribbble.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://dribbble.com/*"],
+      "css": ["styles.css"],
+      "js": [ "libs/zepto.min.js", 
+              "src/shots.js",
+              "src/lists.js",
+              "src/buckets.js",
+              "src/infinitescrolling.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "assets/*"
+  ]
+}
