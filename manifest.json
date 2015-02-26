@@ -22,7 +22,8 @@
     {
       "matches": ["https://dribbble.com/*"],
       "css": ["styles.css"],
-      "js": [ "libs/zepto.min.js", 
+      "js": [ "libs/zepto.min.js",
+              "libs/zepto.scroll.js",
               "src/shots.js",
               "src/lists.js",
               "src/buckets.js",
