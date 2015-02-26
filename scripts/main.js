@@ -1,1 +1,1 @@
-$(document).ready(function(){$(function(){$(document).tooltip()})});
+$(document).ready(function(){$(document).tooltip()});
