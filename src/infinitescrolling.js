@@ -120,4 +120,15 @@ $(document).ready(function(){
 
   $('#main .page .pagination').find('.next_page, .previous_page').hide();
 
+  // Scroll to top button
+  $('body').append('<span class="scroll-to-top"></span>');
+  $('.scroll-to-top').click(function(e) {
+    e.preventDefault();
+    $.scrollTo({
+      endY: 0,
+      duration: 200
+    });
+  });
+
+
 });

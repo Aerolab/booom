@@ -135,6 +135,24 @@ body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
   visibility: visible;
 }
 
+/* Scroll to Top */
+.scroll-to-top {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 35px;
+  height: 35px;
+  margin: 0 10px 10px 0;
+  background: url('chrome-extension://__MSG_@@extension_id__/assets/scroll_up.png') no-repeat 50% 50%;
+  background-size: 35px 35px;
+  cursor: pointer
+}
+.scroll-to-top:hover {
+  opacity: 0.6;
+}
+
+
 /* GIF Support */
 @-webkit-keyframes blink {  
   0% { opacity: 0.0; }
