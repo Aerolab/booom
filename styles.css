@@ -139,6 +139,7 @@ body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
 .scroll-to-top {
   display: block;
   position: fixed;
+  z-index: 999;
   bottom: 0;
   right: 0;
   width: 35px;
