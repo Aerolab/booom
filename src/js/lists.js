@@ -103,15 +103,6 @@ function unlikeShot(shot, callback) {
 }
 
 
-$.getScript = function(url, callback) {
-  var $script = $('<script/>');
-  $script.attr('src', url);
-  
-  $script.bind('load', callback);
-  $("head").append( $script );
-};
-
-
 $(document).ready(function(){
 
   // Check if the user is logged in

@@ -11,15 +11,6 @@ var loadNextPageOffset = calculatePageOffset();
 
 var loadingNextPage = false;
 
-$(window).scroll(function () { 
-  if (!loadingNextPage && $(window).scrollTop() >= loadNextPageOffset - $(window).height()) {
-    // Initialize loading
-    loadingNextPage = true;
-    loadNextPage();
-  }
-});
-
-
 // It will look for next page button and get it's href
 function getNextPageURL(parent) {
   var button = $(parent).find('.next_page');
@@ -113,6 +104,19 @@ function loadNextPage() {
 
 
 $(document).ready(function(){
+
+  if( $('body').hasClass('infinite-scrolling') ){ return; }
+  $('body').addClass('infinite-scrolling')
+
+
+  $(window).scroll(function () { 
+    if (!loadingNextPage && $(window).scrollTop() >= loadNextPageOffset - $(window).height()) {
+      // Initialize loading
+      loadingNextPage = true;
+      loadNextPage();
+    }
+  });
+  
 
   if( ! $('ol.dribbbles').length ) { return; }
 

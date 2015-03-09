@@ -3,6 +3,8 @@
  * The official one is very inefficient for shot lists 
  */
 $(document).ready(function(){
+  if( $('body').hasClass('better-buckets') ){ return; }
+  $('body').addClass('better-buckets')
 
   // Setup the container
   var $sidebar = $('<aside id="add-to-bucket" />').appendTo( $('body') );
