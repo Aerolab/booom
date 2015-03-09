@@ -98,6 +98,12 @@ body ol.dribbbles li div.dribbble-img .dribbble-link {
   position: relative;
   display: block;
 }
+body ol.dribbbles li div.dribbble-img .dribbble-link [data-picture] img {
+  display: none;
+}
+body ol.dribbbles li div.dribbble-img .dribbble-link [data-picture].is-gif img {
+  display: block;
+}
 body ol.dribbbles li div.dribbble-img .dribbble-link img.hq {
   position: absolute;
   display: block;
@@ -122,7 +128,7 @@ body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
   height: 60px;
   overflow: hidden;
   margin: 0 10px;
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/loading.gif') no-repeat 50% 50%;
+  background: url($asset_dir+'assets/loading.gif') no-repeat 50% 50%;
 
   vertical-align: top;
   margin-top: -8px;
@@ -145,7 +151,7 @@ body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
   width: 35px;
   height: 35px;
   margin: 0 10px 10px 0;
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/scroll_up.png') no-repeat 50% 50%;
+  background: url($asset_dir+'assets/scroll_up.png') no-repeat 50% 50%;
   background-size: 35px 35px;
   cursor: pointer
 }
@@ -202,7 +208,7 @@ ul.tools li.fav a {
   }
 
 body.logged-in ul.tools li.fav a {
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/icon-hearts.png') no-repeat;
+  background: url($asset_dir+'assets/icon-hearts.png') no-repeat;
   background-position: 5px -12px;
 }
   body.logged-in ul.tools li.fav a {
@@ -226,7 +232,7 @@ body.logged-in ul.tools li.fav a {
 /* Bucket Button */
 ul.tools li.bucket a {
   /*display: inline-block;*/
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/icon-buckets.png') no-repeat;
+  background: url($asset_dir+'assets/icon-buckets.png') no-repeat;
   background-position: 4px -31px;
   background-color: #f0f0f0;
   color: #808080;
