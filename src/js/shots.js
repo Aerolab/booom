@@ -10,6 +10,19 @@ function setupHqShot() {
 }
 
 function setupSingleShot() {
+  // Set up the Add to Bucket button
+  var shot = $('.screenshot-meta a.meta-bucket').attr('href').replace('/shots/', '').replace('/bucketings/new', '');
+
+  $('.screenshot-meta a.meta-bucket')
+    .on('click', function(event){
+      event.preventDefault();
+      event.stopPropagation();
+
+      var slug = $(this).attr('href').replace('/shots/', '').replace('/bucketings/new', '');
+      var shotUrl = $('div.the-shot div.single-grid div.single-img img').attr('src');
+      showAddBucket(slug, shotUrl)
+    });
+
   // Move the secondary sidebar into a more useful position
   var $secondary = $('body#details #content .secondary');
   $secondary.show();
@@ -24,7 +37,7 @@ $(document).ready(function(){
     setupSingleShot();
   }
 
-  // This supposedly
+  // Sometimes picturefill doesn't load the images for the rebounds on the first try.
   window.onload = function(){
     var s = document.createElement("script");
     s.textContent = 'picturefill ? picturefill() : null;';
