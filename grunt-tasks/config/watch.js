@@ -6,7 +6,7 @@
 module.exports = function(grunt) {
     grunt.config.set('watch', {
         sass: {
-            files: ['<%= vars.app %>{,*/}*.{css,js,json,plist,png,gif,jpg,svg}'],
+            files: ['<%= vars.app %>/{,*/}*.*'],
             tasks: ['build']
         }
     });
