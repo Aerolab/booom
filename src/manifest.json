@@ -21,13 +21,13 @@
   "content_scripts": [
     {
       "matches": ["https://dribbble.com/*"],
-      "css": ["src/styles.css"],
-      "js": [ "libs/zepto.min.js",
-              "libs/zepto.scroll.js",
-              "src/shots.js",
-              "src/lists.js",
-              "src/buckets.js",
-              "src/infinitescrolling.js"]
+      "css": ["styles/styles.css"],
+      "js": [ "js/libs/zepto.min.js",
+              "js/libs/zepto.scroll.js",
+              "js/shots.js",
+              "js/lists.js",
+              "js/buckets.js",
+              "js/infinitescrolling.js"]
     }
   ],
 

@@ -24,16 +24,16 @@
 		<dict>
 			<key>End</key>
 			<array>
-				<string>libs/zepto.min.js</string>
-				<string>libs/zepto.scroll.js</string>
-				<string>src/shots.js</string>
-				<string>src/lists.js</string>
-				<string>src/buckets.js</string>
-				<string>src/infinitescrolling.js</string>
+				<string>js/libs/zepto.min.js</string>
+				<string>js/libs/zepto.scroll.js</string>
+				<string>js/shots.js</string>
+				<string>js/lists.js</string>
+				<string>js/buckets.js</string>
+				<string>js/infinitescrolling.js</string>
 			</array>
 			<key>Start</key>
 			<array>
-				<string>src/styles.js</string>
+				<string>js/styles.js</string>
 			</array>
 		</dict>
 		<key>Whitelist</key>

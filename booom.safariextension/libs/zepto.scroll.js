@@ -1,5 +1,0 @@
-/* Author:
-    Max Degterev @suprMax
-*/
-
-!function(t){var n={endY:0,duration:200,updateRate:15},o=function(t,n,o){return t+(n-t)*o},a=function(t){return-Math.cos(t*Math.PI)/2+.5},c=function(c){var e=t.extend({},n,c);if(0===e.duration)return window.scrollTo(0,e.endY),void("function"==typeof e.callback&&e.callback());var i=window.pageYOffset,l=Date.now(),r=l+e.duration,u=function(){var t=Date.now(),n=t>r?1:(t-l)/e.duration;window.scrollTo(0,o(i,e.endY,a(n))),r>t?setTimeout(u,e.updateRate):"function"==typeof e.callback&&e.callback()};u()},e=function(c){var e=t.extend({},n,c);if(0===e.duration)return this.scrollTop=e.endY,void("function"==typeof e.callback&&e.callback());var i=this.scrollTop,l=Date.now(),r=l+e.duration,u=this,f=function(){var t=Date.now(),n=t>r?1:(t-l)/e.duration;u.scrollTop=o(i,e.endY,a(n)),r>t?setTimeout(f,e.updateRate):"function"==typeof e.callback&&e.callback()};f()};t.scrollTo=c,t.fn.scrollTo=function(){if(this.length){var t=arguments;this.forEach(function(n){e.apply(n,t)})}}}(Zepto);

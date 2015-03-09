@@ -122,7 +122,7 @@ body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
   height: 60px;
   overflow: hidden;
   margin: 0 10px;
-  
+  background: url($asset_dir+'assets/loading.gif') no-repeat 50% 50%;
 
   vertical-align: top;
   margin-top: -8px;
@@ -145,7 +145,7 @@ body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
   width: 35px;
   height: 35px;
   margin: 0 10px 10px 0;
-  
+  background: url($asset_dir+'assets/scroll_up.png') no-repeat 50% 50%;
   background-size: 35px 35px;
   cursor: pointer
 }
@@ -178,8 +178,8 @@ img.is-gif.hidden {
 ol.dribbbles li.enhanced ul.tools, ol.collections li.enhanced ul.tools {
   visibility: visible;
 }
-body.powershot-loaded ul.tools li.fav a,
-body.powershot-loaded ul.tools li.bucket a {
+body.logged-in.powershot-loaded ul.tools li.fav a,
+body.logged-in.powershot-loaded ul.tools li.bucket a {
   transition: all 0.2s ease-out;
 }
 
@@ -195,22 +195,30 @@ ul.tools li.bucket a {
 }
 
 ul.tools li.fav a {
-  
-  background-position: 5px -12px;
-  background-color: #f0f0f0;
-  
+  background-position: 5px 5px;
 }
   ul.tools li.fav a:hover {
+    background-position: 5px -12px;
+  }
+
+body.logged-in ul.tools li.fav a {
+  background: url($asset_dir+'assets/icon-hearts.png') no-repeat;
+  background-position: 5px -12px;
+}
+  body.logged-in ul.tools li.fav a {
+    background-color: #f0f0f0;
+  }
+  body.logged-in ul.tools li.fav a:hover {
     background-color: #fdd4e4;
   }
 
   /* Liked */
-  ul.tools li.fav.marked a {
+  body.logged-in ul.tools li.fav.marked a {
     background-color: #ffd7e6;
     color: #ea4c90;
     background-position: 5px -29px;
   }
-    ul.tools li.fav.marked a:hover {
+    body.logged-in ul.tools li.fav.marked a:hover {
       color: #ea4c90;
     }
 
@@ -218,7 +226,7 @@ ul.tools li.fav a {
 /* Bucket Button */
 ul.tools li.bucket a {
   /*display: inline-block;*/
-  
+  background: url($asset_dir+'assets/icon-buckets.png') no-repeat;
   background-position: 4px -31px;
   background-color: #f0f0f0;
   color: #808080;
