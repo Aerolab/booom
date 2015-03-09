@@ -114,8 +114,12 @@ $(document).ready(function(){
   if( ! $('ol.dribbbles').length ) { return; }
 
   if( $('body').hasClass('infinite-scrolling') ){ return; }
-  $('body').addClass('infinite-scrolling')
+  $('body').addClass('infinite-scrolling');
 
+  $('#footer').append('<div id="footer-toggle"></div>');
+  $('#footer #footer-toggle').on('click', function(event){
+    $('#footer').toggleClass('open');
+  });
 
   $(window).scroll(function () { 
     if (!loadingNextPage && $(window).scrollTop() >= loadNextPageOffset - $(window).height()) {
