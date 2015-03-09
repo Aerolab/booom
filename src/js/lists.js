@@ -59,7 +59,13 @@ function setupShot($shot) {
   var picSrc = $picture.find('div[data-media]').data('src');
   var isGif = ($shot.find('img.is-gif').length > 0) ? true : false;
 
+  // Since the normal 400x300 image is ~@1.2x, use the full size 800x600 image ~@2.3x on retina displays.
+  if( window.devicePixelRatio >= 1.5 ) {
+    picSrc = picSrc.replace('_1x.', '.');
+  }
+
   if( isGif ) {
+    $picture.addClass('is-gif');
     // Use the proper animated gif
     picSrc = picSrc.replace('_1x.gif', '.gif');
   }
@@ -111,7 +117,7 @@ $(document).ready(function(){
   // No user, no plugin
   if( ! $profileTop.length ){ return; }
 
-  $('body').addClass('powershot-loaded');
+  $('body').addClass('booom-loaded');
 
 
   profileUrl = $profileTop.attr('href');

@@ -98,6 +98,12 @@ body ol.dribbbles li div.dribbble-img .dribbble-link {
   position: relative;
   display: block;
 }
+body ol.dribbbles li div.dribbble-img .dribbble-link [data-picture] img {
+  display: none;
+}
+body ol.dribbbles li div.dribbble-img .dribbble-link [data-picture].is-gif img {
+  display: block;
+}
 body ol.dribbbles li div.dribbble-img .dribbble-link img.hq {
   position: absolute;
   display: block;
