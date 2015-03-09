@@ -94,6 +94,8 @@ function loadNextPage() {
       for (var i = SHOTS.length - 1; i >= 0; i--) {
         var shot = SHOTS[i];
         var shot_el = $('#screenshot-'+shot.id);
+        
+        shot_el.find('.timestamp').text(shot.created_at);
 
         if (shot.comments_since_last_view) {
           shot_el.find('.cmnt').addClass('comments-since');
