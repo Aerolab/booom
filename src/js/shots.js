@@ -3,8 +3,10 @@ function setupHqShot() {
   var $picture = $('div.the-shot div.single-grid div.single-img [data-picture]');
   var picSrc = $picture.find('div[data-media]').data('src');
 
-  var $pic = $('<img src="'+ picSrc +'" class="hq" />');
-  $picture.replaceWith($pic);
+  if(picSrc) {
+    var $pic = $('<img src="'+ picSrc +'" class="hq" />');
+    $picture.replaceWith($pic);
+  }
 }
 
 function setupSingleShot() {

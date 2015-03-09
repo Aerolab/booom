@@ -4,7 +4,11 @@
  */
 
 function calculatePageOffset() {
-  return $('ol.dribbbles').height() + $('ol.dribbbles').offset().top;
+  if( $('ol.dribbbles').length ) {
+    return $('ol.dribbbles').height() + $('ol.dribbbles').offset().top;
+  } else {
+    return null;
+  }
 }
 
 var loadNextPageOffset = calculatePageOffset();
@@ -107,6 +111,8 @@ function loadNextPage() {
 
 $(document).ready(function(){
 
+  if( ! $('ol.dribbbles').length ) { return; }
+
   if( $('body').hasClass('infinite-scrolling') ){ return; }
   $('body').addClass('infinite-scrolling')
 
@@ -118,9 +124,6 @@ $(document).ready(function(){
       loadNextPage();
     }
   });
-  
-
-  if( ! $('ol.dribbbles').length ) { return; }
 
   $('#main .page .pagination .next_page').before('<span class="loading-spinner"></span>');
 

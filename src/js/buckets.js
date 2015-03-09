@@ -4,7 +4,7 @@
  */
 $(document).ready(function(){
   if( $('body').hasClass('better-buckets') ){ return; }
-  $('body').addClass('better-buckets')
+  $('body').addClass('better-buckets');
 
   // Setup the container
   var $sidebar = $('<aside id="add-to-bucket" />').appendTo( $('body') );
