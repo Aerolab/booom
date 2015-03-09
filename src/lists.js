@@ -11,39 +11,45 @@ function setupShot($shot) {
   if( $shot.hasClass('enhanced') ){ return; }
   $shot.addClass('enhanced');
 
-  var $like = $shot.find('li.fav a');
-  var shot = $like.attr('href').replace('/shots/', '').replace('/fans', '');
-  var shotUrl = $shot.find('[data-picture] [data-src]').data('src');
-  var $tools = $shot.find('ul.tools').attr('shot', shot);
-  var $bucket = $('<li class="bucket"><a>Add</a></li>').insertAfter($like.parent());
+  // Don't show the buttons for logged out users
+  // Todo: This should be refactored.
+  if( $('body').hasClass('logged-in') ){
 
-  $bucket.find('a').attr('title', 'Add to bucket');
-  $like.attr('title', 'Like this shot!');
+    var $like = $shot.find('li.fav a');
+    var shot = $like.attr('href').replace('/shots/', '').replace('/fans', '');
+    var shotUrl = $shot.find('[data-picture] [data-src]').data('src');
+    var $tools = $shot.find('ul.tools').attr('shot', shot);
+    var $bucket = $('<li class="bucket"><a>Add</a></li>').insertAfter($like.parent());
 
-  /* Do the like via ajax */
-  $like.on('click', function(event){
-    event.preventDefault();
+    $bucket.find('a').attr('title', 'Add to bucket');
+    $like.attr('title', 'Like this shot!');
 
-    var $button = $(this);
-    var shot = $button.attr('href').replace('/shots/', '').replace('/fans', '');
-    var likes = parseInt( $button.text() );
+    /* Do the like via ajax */
+    $like.on('click', function(event){
+      event.preventDefault();
 
-    // Todo: Use the actual like data for the like count (it comes from the ajax request)
-    if( ! $button.parent().hasClass('marked') ){
-      likeShot(shot);
-      $button.text( likes+1 ).parent().addClass('marked');
-    } else {
-      unlikeShot(shot);
-      $button.text( likes-1 ).parent().removeClass('marked');
-    }
+      var $button = $(this);
+      var shot = $button.attr('href').replace('/shots/', '').replace('/fans', '');
+      var likes = parseInt( $button.text() );
 
-  });
+      // Todo: Use the actual like data for the like count (it comes from the ajax request)
+      if( ! $button.parent().hasClass('marked') ){
+        likeShot(shot);
+        $button.text( likes+1 ).parent().addClass('marked');
+      } else {
+        unlikeShot(shot);
+        $button.text( likes-1 ).parent().removeClass('marked');
+      }
+
+    });
 
 
-  /* Add to bucket */
-  $bucket.on('click', function(event){
-    showAddBucket(shot, shotUrl);
-  });
+    /* Add to bucket */
+    $bucket.on('click', function(event){
+      showAddBucket(shot, shotUrl);
+    });
+
+  }
 
 
   /* Use a high resolution shot */

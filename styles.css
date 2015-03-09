@@ -178,8 +178,8 @@ img.is-gif.hidden {
 ol.dribbbles li.enhanced ul.tools, ol.collections li.enhanced ul.tools {
   visibility: visible;
 }
-body.powershot-loaded ul.tools li.fav a,
-body.powershot-loaded ul.tools li.bucket a {
+body.logged-in.powershot-loaded ul.tools li.fav a,
+body.logged-in.powershot-loaded ul.tools li.bucket a {
   transition: all 0.2s ease-out;
 }
 
@@ -195,22 +195,30 @@ ul.tools li.bucket a {
 }
 
 ul.tools li.fav a {
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/icon-hearts.png') no-repeat;
-  background-position: 5px -12px;
-  background-color: #f0f0f0;
-  
+  background-position: 5px 5px;
 }
   ul.tools li.fav a:hover {
+    background-position: 5px -12px;
+  }
+
+body.logged-in ul.tools li.fav a {
+  background: url('chrome-extension://__MSG_@@extension_id__/assets/icon-hearts.png') no-repeat;
+  background-position: 5px -12px;
+}
+  body.logged-in ul.tools li.fav a {
+    background-color: #f0f0f0;
+  }
+  body.logged-in ul.tools li.fav a:hover {
     background-color: #fdd4e4;
   }
 
   /* Liked */
-  ul.tools li.fav.marked a {
+  body.logged-in ul.tools li.fav.marked a {
     background-color: #ffd7e6;
     color: #ea4c90;
     background-position: 5px -29px;
   }
-    ul.tools li.fav.marked a:hover {
+    body.logged-in ul.tools li.fav.marked a:hover {
       color: #ea4c90;
     }
 
