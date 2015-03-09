@@ -24,4 +24,11 @@ $(document).ready(function(){
     setupSingleShot();
   }
 
+  // This supposedly
+  window.onload = function(){
+    var s = document.createElement("script");
+    s.textContent = 'picturefill ? picturefill() : null;';
+    document.getElementsByTagName("body")[0].appendChild(s);
+  };
+
 });
