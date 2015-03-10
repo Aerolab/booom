@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Aerolab</string>
+	<key>Builder Version</key>
+	<string>10600.3.18</string>
+	<key>CFBundleDisplayName</key>
+	<string>Booom</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.aerolab.booom.safari</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.2.0</string>
+	<key>CFBundleVersion</key>
+	<string>0.2.0</string>
+	<key>Chrome</key>
+	<dict/>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>js/libs/zepto.min.js</string>
+				<string>js/libs/zepto.scroll.js</string>
+				<string>js/shots.js</string>
+				<string>js/lists.js</string>
+				<string>js/buckets.js</string>
+				<string>js/infinitescrolling.js</string>
+			</array>
+			<key>Start</key>
+			<array>
+				<string>js/styles.js</string>
+			</array>
+		</dict>
+		<key>Whitelist</key>
+		<array>
+			<string>https://*.dribbble.com/*</string>
+			<string>http://*.dribbble.com/*</string>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>A better UI for Dribbble</string>
+	<key>DeveloperIdentifier</key>
+	<string>G24EQ4P9UT</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>*.dribbble.com</string>
+			</array>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>Some</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://aerolab.github.io/booom/updates/safari.plist</string>
+	<key>Website</key>
+	<string>http://aerolab.github.io/booom</string>
+</dict>
+</plist>

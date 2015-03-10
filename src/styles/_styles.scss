@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* Fixes */
 body {
   overflow-y: scroll;
@@ -98,6 +100,12 @@ body ol.dribbbles li div.dribbble-img .dribbble-link {
   position: relative;
   display: block;
 }
+body ol.dribbbles li div.dribbble-img .dribbble-link [data-picture] img {
+  display: none;
+}
+body ol.dribbbles li div.dribbble-img .dribbble-link [data-picture].is-gif img {
+  display: block;
+}
 body ol.dribbbles li div.dribbble-img .dribbble-link img.hq {
   position: absolute;
   display: block;
@@ -122,7 +130,7 @@ body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
   height: 60px;
   overflow: hidden;
   margin: 0 10px;
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/loading.gif') no-repeat 50% 50%;
+  background: url($asset_dir+'assets/loading.gif') no-repeat 50% 50%;
 
   vertical-align: top;
   margin-top: -8px;
@@ -145,7 +153,7 @@ body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
   width: 35px;
   height: 35px;
   margin: 0 10px 10px 0;
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/scroll_up.png') no-repeat 50% 50%;
+  background: url($asset_dir+'assets/scroll_up.png') no-repeat 50% 50%;
   background-size: 35px 35px;
   cursor: pointer
 }
@@ -178,8 +186,8 @@ img.is-gif.hidden {
 ol.dribbbles li.enhanced ul.tools, ol.collections li.enhanced ul.tools {
   visibility: visible;
 }
-body.powershot-loaded ul.tools li.fav a,
-body.powershot-loaded ul.tools li.bucket a {
+body.logged-in.booom-loaded ul.tools li.fav a,
+body.logged-in.booom-loaded ul.tools li.bucket a {
   transition: all 0.2s ease-out;
 }
 
@@ -195,22 +203,31 @@ ul.tools li.bucket a {
 }
 
 ul.tools li.fav a {
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/icon-hearts.png') no-repeat;
-  background-position: 5px -12px;
-  background-color: #f0f0f0;
-  
+  background-position: 5px 5px;
 }
   ul.tools li.fav a:hover {
+    background-position: 5px -12px;
+  }
+
+body.logged-in ul.tools li.fav a {
+  background: url($asset_dir+'assets/icon-hearts.png') no-repeat;
+  background-size: 12px 45px;
+  background-position: 5px -12px;
+}
+  body.logged-in ul.tools li.fav a {
+    background-color: #f0f0f0;
+  }
+  body.logged-in ul.tools li.fav a:hover {
     background-color: #fdd4e4;
   }
 
   /* Liked */
-  ul.tools li.fav.marked a {
+  body.logged-in ul.tools li.fav.marked a {
     background-color: #ffd7e6;
     color: #ea4c90;
     background-position: 5px -29px;
   }
-    ul.tools li.fav.marked a:hover {
+    body.logged-in ul.tools li.fav.marked a:hover {
       color: #ea4c90;
     }
 
@@ -218,7 +235,8 @@ ul.tools li.fav a {
 /* Bucket Button */
 ul.tools li.bucket a {
   /*display: inline-block;*/
-  background: url('chrome-extension://__MSG_@@extension_id__/assets/icon-buckets.png') no-repeat;
+  background: url($asset_dir+'assets/icon-buckets.png') no-repeat;
+  background-size: 14px 47px;
   background-position: 4px -31px;
   background-color: #f0f0f0;
   color: #808080;
@@ -353,7 +371,7 @@ body form.comment textarea {
   border-radius: 2px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 
-  transition: all 0.2s ease-out;
+  transition: all 0.1s ease-out;
 }
 #add-to-bucket .buckets.loading li {
   opacity: 0.0;
@@ -434,6 +452,8 @@ body form.comment textarea {
 #add-to-bucket .buckets li.bucketed a::after {
   visibility: visible;
   opacity: 1.0;
+  content: "✕";
+  font-weight: bold;
 }
 #add-to-bucket .buckets li.bucketed strong {
   color: #ffffff;
@@ -515,46 +535,122 @@ body form.comment textarea {
   background: none;
   width: 9px;
 }
-/* line 119, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-button {
   display: none;
 }
-/* line 121, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-track {
   display: none;
 }
-/* line 123, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-track-piece {
   display: none;
 }
-/* line 125, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0);
   background-clip: content-box;
   border-radius: 10px;
   border: 2px solid transparent;
 }
-/* line 132, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-corner {
   display: none;
 }
-/* line 134, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-resizer {
   display: none;
 }
-/* line 137, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets:hover::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.5);
   background-clip: content-box;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
-/* line 143, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets:hover::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.6);
   background-clip: content-box;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/* Fixed Footer */
+body #footer {
+  position: fixed;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: #ffffff;
+}
+body #footer.static {
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
+}
+body #footer.static #footer-inner {
+  visibility: visible;
+  max-height: none;
+}
+body #footer.open {
+}
+body #footer #footer-inner {
+  visibility: hidden;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: 1px;
+  transition: all 0.25s ease-out;
+}
+body #footer-inner > div.secondary.extra.group {
+  float: none;
+  clear: none;
+  width: auto;
+  margin-top: 0;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  border-top: none;
+  border-bottom: 2px solid #ddd;
+}
+body #footer-inner > div.group {
+  padding-top: 30px;
+}
+body #footer-inner > p.follow {
+  margin-bottom: 0;
+  padding-bottom: 30px;
+}
+body #footer.open #footer-inner {
+  visibility: visible;
+  max-height: 600px;
+}
+body #footer-toggle {
+  position: absolute;
+  padding: 6px 6px 6px 6px;
+  background-color: #ffffff;
+  border: 1px solid #D7D7D7;
+  border-bottom: none;
+  border-radius: 100%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  cursor: pointer;
+  top: -45px;
+  left: 50%;
+  margin-left: -23px;
+}
+body #footer-toggle::after {
+  display: block;
+  content: "";
+  background: url($asset_dir+'assets/dribbble-footer.png') no-repeat 0 0;
+  background-size: 32px 64px;
+  width: 32px;
+  height: 32px;
+}
+body #footer-toggle:hover::after,
+body #footer.open #footer-toggle::after {
+  background-position: 0 -32px;
+}
+body #footer div.footer-links {
+  width: 25%;
+  box-sizing: border-box;
+  margin-right: 0;
 }
 
 

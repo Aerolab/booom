@@ -4,21 +4,16 @@
  */
 
 function calculatePageOffset() {
-  return $('ol.dribbbles').height() + $('ol.dribbbles').offset().top;
+  if( $('ol.dribbbles').length ) {
+    return $('ol.dribbbles').height() + $('ol.dribbbles').offset().top;
+  } else {
+    return null;
+  }
 }
 
 var loadNextPageOffset = calculatePageOffset();
 
 var loadingNextPage = false;
-
-$(window).scroll(function () { 
-  if (!loadingNextPage && $(window).scrollTop() >= loadNextPageOffset - $(window).height()) {
-    // Initialize loading
-    loadingNextPage = true;
-    loadNextPage();
-  }
-});
-
 
 // It will look for next page button and get it's href
 function getNextPageURL(parent) {
@@ -94,6 +89,8 @@ function loadNextPage() {
       for (var i = SHOTS.length - 1; i >= 0; i--) {
         var shot = SHOTS[i];
         var shot_el = $('#screenshot-'+shot.id);
+        
+        shot_el.find('.timestamp').text(shot.created_at);
 
         if (shot.comments_since_last_view) {
           shot_el.find('.cmnt').addClass('comments-since');
@@ -114,7 +111,30 @@ function loadNextPage() {
 
 $(document).ready(function(){
 
-  if( ! $('ol.dribbbles').length ) { return; }
+  if( ! $('ol.dribbbles').length ) { 
+    $('#footer').addClass('static');
+    return; 
+  }
+
+  if( $('body').hasClass('infinite-scrolling') ){ return; }
+  $('body').addClass('infinite-scrolling');
+
+  // Move the secondary ads into the togglable footer so it doesn't interfere with infinite scrolling
+  var $secondaryAds = $('#wrap > #wrap-inner > #content.group > .secondary.extra.group');
+  $('#footer #footer-inner').prepend($secondaryAds);
+  $('#footer').append('<div id="footer-toggle"></div>');
+  $('#footer #footer-toggle').on('click', function(event){
+    $('#footer').toggleClass('open');
+  });
+
+
+  $(window).scroll(function () { 
+    if (!loadingNextPage && $(window).scrollTop() >= loadNextPageOffset - $(window).height()) {
+      // Initialize loading
+      loadingNextPage = true;
+      loadNextPage();
+    }
+  });
 
   $('#main .page .pagination .next_page').before('<span class="loading-spinner"></span>');
 

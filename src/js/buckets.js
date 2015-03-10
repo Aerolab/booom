@@ -3,6 +3,8 @@
  * The official one is very inefficient for shot lists 
  */
 $(document).ready(function(){
+  if( $('body').hasClass('better-buckets') ){ return; }
+  $('body').addClass('better-buckets');
 
   // Setup the container
   var $sidebar = $('<aside id="add-to-bucket" />').appendTo( $('body') );
@@ -77,9 +79,13 @@ function showAddBucket(slug, shotUrl) {
     $buckets.not( $addBucket ).on('click', function(event){
       event.preventDefault();
 
-      addToBucket(slug, $(this).attr('id').replace('bucket-', ''));
-
-      $(this).removeClass('unbucketed').addClass('bucketed');
+      if( ! $(this).hasClass('bucketed') ) {
+        addToBucket(slug, $(this).attr('id').replace('bucket-', ''));
+        $(this).removeClass('unbucketed').addClass('bucketed');
+      } else {
+        removeFromBucket(slug, $(this).attr('id').replace('bucket-', ''));
+        $(this).addClass('unbucketed').removeClass('bucketed');
+      }
       $('#add-to-bucket').removeClass('active');
     });
 
@@ -143,6 +149,14 @@ function addToBucket(slug, bucketId) {
     data: {
       bucket_id: bucketId
     },
+    headers: {'X-CSRF-Token': csrfToken}
+  });
+}
+
+function removeFromBucket(slug, bucketId) {
+  $.ajax({
+    type: 'DELETE',
+    url: 'https://dribbble.com/shots/'+ slug +'/bucketings/'+ bucketId,
     headers: {'X-CSRF-Token': csrfToken}
   });
 }
