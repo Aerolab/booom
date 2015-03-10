@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+   <key>Extension Updates</key>
+   <array>
+     <dict>
+       <key>CFBundleIdentifier</key>
+       <string>com.aerolab.booom.safari</string>
+       <key>Developer Identifier</key>
+       <string>G24EQ4P9UT</string>
+       <key>CFBundleVersion</key>
+       <string>0.2.0</string>
+       <key>CFBundleShortVersionString</key>
+       <string>0.2.0</string>
+       <key>URL</key>
+       <string>http://aerolab.github.io/safari/booom.safariextz</string>
+     </dict>
+   </array>
+</dict>
+</plist>
