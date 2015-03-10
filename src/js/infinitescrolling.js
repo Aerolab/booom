@@ -114,7 +114,15 @@ $(document).ready(function(){
   if( ! $('ol.dribbbles').length ) { return; }
 
   if( $('body').hasClass('infinite-scrolling') ){ return; }
-  $('body').addClass('infinite-scrolling')
+  $('body').addClass('infinite-scrolling');
+
+  // Move the secondary ads into the togglable footer so it doesn't interfere with infinite scrolling
+  var $secondaryAds = $('#wrap > #wrap-inner > #content.group > .secondary.extra.group');
+  $('#footer #footer-inner').prepend($secondaryAds);
+  $('#footer').append('<div id="footer-toggle"></div>');
+  $('#footer #footer-toggle').on('click', function(event){
+    $('#footer').toggleClass('open');
+  });
 
 
   $(window).scroll(function () { 

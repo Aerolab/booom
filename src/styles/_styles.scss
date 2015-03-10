@@ -533,46 +533,112 @@ body form.comment textarea {
   background: none;
   width: 9px;
 }
-/* line 119, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-button {
   display: none;
 }
-/* line 121, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-track {
   display: none;
 }
-/* line 123, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-track-piece {
   display: none;
 }
-/* line 125, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0);
   background-clip: content-box;
   border-radius: 10px;
   border: 2px solid transparent;
 }
-/* line 132, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-scrollbar-corner {
   display: none;
 }
-/* line 134, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets::-webkit-resizer {
   display: none;
 }
-/* line 137, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets:hover::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.5);
   background-clip: content-box;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
-/* line 143, ../sass/modules/_vars.scss */
 #add-to-bucket .buckets:hover::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.6);
   background-clip: content-box;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/* Fixed Footer */
+body #footer {
+  position: fixed;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: #ffffff;
+}
+body #footer.open {
+}
+body #footer #footer-inner {
+  visibility: hidden;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: 1px;
+  transition: all 0.25s ease-out;
+}
+body #footer-inner > div.secondary.extra.group {
+  float: none;
+  clear: none;
+  width: auto;
+  margin-top: 0;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  border-top: none;
+  border-bottom: 2px solid #ddd;
+}
+body #footer-inner > div.group {
+  padding-top: 30px;
+}
+body #footer-inner > p.follow {
+  margin-bottom: 0;
+  padding-bottom: 30px;
+}
+body #footer.open #footer-inner {
+  visibility: visible;
+  max-height: 600px;
+}
+body #footer-toggle {
+  position: absolute;
+  padding: 6px 6px 6px 6px;
+  background-color: #ffffff;
+  border: 1px solid #D7D7D7;
+  border-bottom: none;
+  border-radius: 100%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  cursor: pointer;
+  top: -45px;
+  left: 50%;
+  margin-left: -23px;
+}
+body #footer-toggle::after {
+  display: block;
+  content: "";
+  background: url($asset_dir+'assets/dribbble-footer.png') no-repeat 0 0;
+  background-size: 32px 64px;
+  width: 32px;
+  height: 32px;
+}
+body #footer-toggle:hover::after,
+body #footer.open #footer-toggle::after {
+  background-position: 0 -32px;
+}
+body #footer div.footer-links {
+  width: 25%;
+  box-sizing: border-box;
+  margin-right: 0;
 }
 
 
