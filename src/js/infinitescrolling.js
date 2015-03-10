@@ -111,7 +111,10 @@ function loadNextPage() {
 
 $(document).ready(function(){
 
-  if( ! $('ol.dribbbles').length ) { return; }
+  if( ! $('ol.dribbbles').length ) { 
+    $('#footer').addClass('static');
+    return; 
+  }
 
   if( $('body').hasClass('infinite-scrolling') ){ return; }
   $('body').addClass('infinite-scrolling');

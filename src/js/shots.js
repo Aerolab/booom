@@ -24,9 +24,10 @@ function setupSingleShot() {
     });
 
   // Move the secondary sidebar into a more useful position
+  // Todo: This should be redone with two columns, since both solutions have issues
   var $secondary = $('body#details #content .secondary');
   $secondary.show();
-  $secondary.insertAfter( $('body#details #main #comments-section') ).show();
+  $secondary.insertAfter( $('body#details #main > .screenshot-meta') ).show();
 }
 
 
