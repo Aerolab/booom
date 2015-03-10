@@ -211,6 +211,7 @@ ul.tools li.fav a {
 
 body.logged-in ul.tools li.fav a {
   background: url($asset_dir+'assets/icon-hearts.png') no-repeat;
+  background-size: 12px 45px;
   background-position: 5px -12px;
 }
   body.logged-in ul.tools li.fav a {
@@ -235,6 +236,7 @@ body.logged-in ul.tools li.fav a {
 ul.tools li.bucket a {
   /*display: inline-block;*/
   background: url($asset_dir+'assets/icon-buckets.png') no-repeat;
+  background-size: 14px 47px;
   background-position: 4px -31px;
   background-color: #f0f0f0;
   color: #808080;
