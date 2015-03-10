@@ -26,7 +26,7 @@ function setupSingleShot() {
   // Move the secondary sidebar into a more useful position
   var $secondary = $('body#details #content .secondary');
   $secondary.show();
-  $secondary.insertAfter( $('body#details #main > .screenshot-meta') ).show();
+  $secondary.insertAfter( $('body#details #main #comments-section') ).show();
 }
 
 
