@@ -111,22 +111,23 @@ function loadNextPage() {
 
 $(document).ready(function(){
 
-  if( ! $('ol.dribbbles').length ) { 
-    $('#footer').addClass('static');
-    return; 
-  }
-
   if( $('body').hasClass('infinite-scrolling') ){ return; }
   $('body').addClass('infinite-scrolling');
 
   // Move the secondary ads into the togglable footer so it doesn't interfere with infinite scrolling
   var $secondaryAds = $('#wrap > #wrap-inner > #content.group > .secondary.extra.group');
-  $('#footer #footer-inner').prepend($secondaryAds);
+  if( $secondaryAds.length ) {
+    $('#footer #footer-inner').prepend($secondaryAds);
+  }
   $('#footer').append('<div id="footer-toggle"></div>');
   $('#footer #footer-toggle').on('click', function(event){
     $('#footer').toggleClass('open');
   });
 
+  // Don't setup infinite scrolling if there are no shots visible.
+  if( ! $('ol.dribbbles').length ) { 
+    return;
+  }
 
   $(window).scroll(function () { 
     if (!loadingNextPage && $(window).scrollTop() >= loadNextPageOffset - $(window).height()) {

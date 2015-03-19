@@ -28,6 +28,14 @@ module.exports = function(grunt) {
                     'js/{,*/}*.js',
                     'Info.plist'
                 ]
+            },{
+                expand: true,
+                dot: true,
+                cwd: '<%= vars.app %>/icons',
+                dest: '<%= vars.dist %>/booom.safariextension',
+                src: [
+                    'icon.png'
+                ]
             }]
         }
     });
