@@ -272,6 +272,10 @@ body #header-inner, body #footer-inner {
 }
 
 /* Individual Shot */
+body#details div.main-shot {
+  width: auto;
+  float: none;
+}
 body#details div.the-shot,
 body#details #main.full-800 div.the-shot,
 body#details div.shot-desc,
