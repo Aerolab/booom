@@ -29,12 +29,21 @@ div.profile-dash div.profile-dash-inner,
       width: 800px;
       height: 600px;
       background-repeat: repeat;
+
+      // The [data-picture] activates randomly and mostly causes issues (even if it's missing)
+      // We just create another img beside it and hide the [data-picture]
       div.single-img [data-picture] {
         display: none !important;
+        visibility: hidden !important;
       }
-      div.single-img img {
-        max-width: 800px;
-        max-height: 600px;
+
+      div.single-img {
+        width: 800px;
+        height: 600px;
+        img {
+          max-width: 800px;
+          max-height: 600px;
+        }
       }
     }
   }
@@ -55,6 +64,9 @@ div.profile-dash div.profile-dash-inner,
 
 /* Shot Comments */
 .main-shot #comments-section {
+  width: calc(100% - 330px);
+}
+.main-shot div.ad-shot {
   width: calc(100% - 330px);
 }
 form.comment textarea {
