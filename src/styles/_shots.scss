@@ -9,7 +9,7 @@ div.profile-dash div.profile-dash-inner,
 
 
 /* Larger Modal Shots */
-.overlay-content {
+.overlay-content.group, .non-overlay.group {
   position: relative;
   width: auto;
   max-width: 980px;
