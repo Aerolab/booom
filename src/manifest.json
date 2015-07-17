@@ -26,7 +26,8 @@
               "js/libs/zepto.scroll.js",
               "js/shots.js",
               "js/lists.js",
-              "js/buckets.js"]
+              "js/buckets.js",
+              "js/infinitescrolling.js"]
     }
   ],
 
