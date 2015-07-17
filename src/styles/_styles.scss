@@ -22,12 +22,12 @@ body form.comment textarea {
   width: 32%;
   margin-right: 2%;
 }
-#main ol.dribbbles li.group:nth-child(4n),
-#main ol.collections li.group:nth-child(4n) {
+#main ol.dribbbles li.group:nth-of-type(4n),
+#main ol.collections li.group:nth-of-type(4n) {
   margin-right: 2%;
 }
-#main ol.dribbbles li.group:nth-child(3n),
-#main ol.collections li.group:nth-child(3n) {
+#main ol.dribbbles li.group:nth-of-type(3n),
+#main ol.collections li.group:nth-of-type(3n) {
   margin-right: 0;
 }
 
@@ -37,16 +37,16 @@ body form.comment textarea {
     width: 48%;
     margin-right: 4%;
   }
-  #main:not(.main-full) ol.dribbbles li.group:nth-child(4n),
-  #main:not(.main-full) ol.collections li.group:nth-child(4n) {
+  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(4n),
+  #main:not(.main-full) ol.collections li.group:nth-of-type(4n) {
     margin-right: 4%;
   }
-  #main:not(.main-full) ol.dribbbles li.group:nth-child(3n),
-  #main:not(.main-full) ol.collections li.group:nth-child(3n) {
+  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(3n),
+  #main:not(.main-full) ol.collections li.group:nth-of-type(3n) {
     margin-right: 4%;
   }
-  #main:not(.main-full) ol.dribbbles li.group:nth-child(2n),
-  #main:not(.main-full) ol.collections li.group:nth-child(2n) {
+  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(2n),
+  #main:not(.main-full) ol.collections li.group:nth-of-type(2n) {
     margin-right: 0;
   }
 }
@@ -57,16 +57,16 @@ body form.comment textarea {
     width: 48%;
     margin-right: 4%;
   }
-  #main ol.dribbbles li.group:nth-child(4n),
-  #main ol.collections li.group:nth-child(4n) {
+  #main ol.dribbbles li.group:nth-of-type(4n),
+  #main ol.collections li.group:nth-of-type(4n) {
     margin-right: 4%;
   }
-  #main ol.dribbbles li.group:nth-child(3n),
-  #main ol.collections li.group:nth-child(3n) {
+  #main ol.dribbbles li.group:nth-of-type(3n),
+  #main ol.collections li.group:nth-of-type(3n) {
     margin-right: 4%;
   }
-  #main ol.dribbbles li.group:nth-child(2n),
-  #main ol.collections li.group:nth-child(2n) {
+  #main ol.dribbbles li.group:nth-of-type(2n),
+  #main ol.collections li.group:nth-of-type(2n) {
     margin-right: 0;
   }
 }

@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.2.2</string>
+	<string>0.2.3</string>
 	<key>CFBundleVersion</key>
-	<string>0.2.2</string>
+	<string>0.2.3</string>
 	<key>Chrome</key>
 	<dict/>
 	<key>Content</key>
@@ -29,7 +29,6 @@
 				<string>js/shots.js</string>
 				<string>js/lists.js</string>
 				<string>js/buckets.js</string>
-				<string>js/infinitescrolling.js</string>
 			</array>
 			<key>Start</key>
 			<array>
