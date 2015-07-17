@@ -1,0 +1,63 @@
+body {
+
+/* Larger Main Components */
+#content, #main.main-full, #main.full-800,
+div.profile-dash div.profile-dash-inner,
+#header-inner, #footer-inner {
+  max-width: 1160px;
+}
+
+
+/* Larger Modal Shots */
+.overlay-content {
+  position: relative;
+  width: auto;
+  max-width: 980px;
+  top: auto;
+  left: auto;
+  margin: 0 auto;
+  overflow: hidden;
+
+  .main-shot div.the-shot {
+    width: 840px;
+
+    div.single {
+      width: 800px;
+      margin-left: 0;
+    }
+    div.single-grid {
+      width: 800px;
+      height: 600px;
+      background-repeat: repeat;
+      div.single-img img {
+        max-width: 800px;
+        max-height: 600px;
+      }
+    }
+  }
+
+  div.screenshot-meta {
+    margin-top: 10px;
+  }
+
+}
+#screenshot-title-section {
+  .screenshot-dash {
+    .sep, a.twotimes {
+      display: none;
+    }
+  }
+}
+
+
+/* Shot Comments */
+.main-shot #comments-section {
+  width: calc(100% - 330px);
+}
+form.comment textarea {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+}
