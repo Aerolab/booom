@@ -29,6 +29,9 @@ div.profile-dash div.profile-dash-inner,
       width: 800px;
       height: 600px;
       background-repeat: repeat;
+      div.single-img [data-picture] {
+        display: none !important;
+      }
       div.single-img img {
         max-width: 800px;
         max-height: 600px;

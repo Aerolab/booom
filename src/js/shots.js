@@ -3,7 +3,8 @@ $('body > .shot-overlay').bind("DOMNodeInserted", function() {
 
   if( event.target.nodeName.toLowerCase() == 'img' ) {
     var $img = $(event.target);
-    if( $img.parent().parent().is('.single-img') && ! $img.hasClass('hq') ) {
+    var $holder = $img.parent().parent();
+    if( $holder.is('.single-img') && ! $holder.hasClass('loaded') ) {
       setupHqShot();
       //setupSingleShot();
     }
@@ -14,15 +15,15 @@ $('body > .shot-overlay').bind("DOMNodeInserted", function() {
 
 /* Setup the HQ Shot for individual shots */
 function setupHqShot() {
-  var $picture = $('div.the-shot div.single-grid div.single-img [data-picture]');
-  var picSrc = $picture.find('div[data-media]').attr('data-src');
+  var $holder = $('div.the-shot div.single-grid div.single-img');
+  var picSrc = $holder.find('[data-picture]').find('div[data-media]').data('src');
 
   if(picSrc) {
     var $pic = $('<img src="'+ picSrc +'" class="hq" />');
-    $picture.find('img').remove();
-    $picture.append($pic);
+    $holder.addClass('loaded').append($pic);
   }
 }
+
 
 function setupSingleShot() {
   // Set up the Add to Bucket button
