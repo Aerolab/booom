@@ -1,0 +1,199 @@
+
+/* Grid */
+#main ol.dribbbles li.group,
+#main ol.collections li.group {
+  width: 32%;
+  margin-right: 2%;
+}
+#main ol.dribbbles li.group:nth-of-type(4n),
+#main ol.collections li.group:nth-of-type(4n) {
+  margin-right: 2%;
+}
+#main ol.dribbbles li.group:nth-of-type(3n),
+#main ol.collections li.group:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 1199px) {
+  #main:not(.main-full) ol.dribbbles li.group,
+  #main:not(.main-full) ol.collections li.group {
+    width: 48%;
+    margin-right: 4%;
+  }
+  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(4n),
+  #main:not(.main-full) ol.collections li.group:nth-of-type(4n) {
+    margin-right: 4%;
+  }
+  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(3n),
+  #main:not(.main-full) ol.collections li.group:nth-of-type(3n) {
+    margin-right: 4%;
+  }
+  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(2n),
+  #main:not(.main-full) ol.collections li.group:nth-of-type(2n) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #main ol.dribbbles li.group,
+  #main ol.collections li.group {
+    width: 48%;
+    margin-right: 4%;
+  }
+  #main ol.dribbbles li.group:nth-of-type(4n),
+  #main ol.collections li.group:nth-of-type(4n) {
+    margin-right: 4%;
+  }
+  #main ol.dribbbles li.group:nth-of-type(3n),
+  #main ol.collections li.group:nth-of-type(3n) {
+    margin-right: 4%;
+  }
+  #main ol.dribbbles li.group:nth-of-type(2n),
+  #main ol.collections li.group:nth-of-type(2n) {
+    margin-right: 0;
+  }
+}
+
+
+
+/* Better Descriptions */
+body ol.dribbbles li div.dribbble a.dribbble-over {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+}
+body ol.dribbbles li div.dribbble a.dribbble-over strong {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+body ol.dribbbles li div.dribbble a.dribbble-over span.comment {
+  font-size: 13px;
+  line-height: 1.6;
+}
+body ol.dribbbles li div.dribbble a.dribbble-over em {
+  left: 30px;
+  bottom: 20px;
+}
+
+/* HQ Shots */
+body ol.dribbbles li div.dribbble-img img,
+body ol.collections li div.dribbble-img img {
+  width: 100%;
+  max-height: none;
+}
+body ol.dribbbles li div.dribbble-img .dribbble-link {
+  position: relative;
+  display: block;
+}
+body ol.dribbbles li div.dribbble-img .dribbble-link [data-picture] img {
+  display: none;
+}
+body ol.dribbbles li div.dribbble-img .dribbble-link [data-picture].is-gif img {
+  display: block;
+}
+body ol.dribbbles li div.dribbble-img .dribbble-link img.hq {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.0;
+  visibility: hidden;
+  transition: all 0.2s ease-out;
+}
+body ol.dribbbles li div.dribbble-img .dribbble-link.hq-loaded img.hq {
+  opacity: 1.0;
+  visibility: visible;
+}
+
+
+
+/* GIF Support */
+@-webkit-keyframes blink {  
+  0% { opacity: 0.0; }
+  5% { opacity: 0.0; }
+  45% { opacity: 1.0; }
+  55% { opacity: 1.0; }
+  95% { opacity: 0.0; }
+  100% { opacity: 0.0; }
+}
+img.is-gif {
+  -webkit-animation: blink 1.0s linear infinite;
+  transition: all 0.2s ease-out;
+} 
+img.is-gif.hidden {
+  opacity: 0.0;
+  display: none;
+  visibility: hidden;
+}
+
+
+/* Like button */
+ol.dribbbles li.enhanced ul.tools, ol.collections li.enhanced ul.tools {
+  visibility: visible;
+}
+body.logged-in.booom-loaded ul.tools li.fav a,
+body.logged-in.booom-loaded ul.tools li.bucket a {
+  transition: all 0.2s ease-out;
+}
+
+ul.tools li.fav a,
+ul.tools li.bucket a {
+  padding-right: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 7px;
+  padding-left: 22px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+ul.tools li.fav a {
+  background-position: 5px 5px;
+}
+  ul.tools li.fav a:hover {
+    background-position: 5px -12px;
+  }
+
+body.logged-in ul.tools li.fav a {
+  background: url($asset_dir+'assets/icon-hearts.png') no-repeat;
+  background-size: 12px 45px;
+  background-position: 5px -12px;
+}
+  body.logged-in ul.tools li.fav a {
+    background-color: #f0f0f0;
+  }
+  body.logged-in ul.tools li.fav a:hover {
+    background-color: #fdd4e4;
+  }
+
+  /* Liked */
+  body.logged-in ul.tools li.fav.marked a {
+    background-color: #ffd7e6;
+    color: #ea4c90;
+    background-position: 5px -29px;
+  }
+    body.logged-in ul.tools li.fav.marked a:hover {
+      color: #ea4c90;
+    }
+
+
+/* Bucket Button */
+ul.tools li.bucket a {
+  /*display: inline-block;*/
+  background: url($asset_dir+'assets/icon-buckets.png') no-repeat;
+  background-size: 14px 47px;
+  background-position: 4px -31px;
+  background-color: #f0f0f0;
+  color: #808080;
+}
+  ul.tools li.bucket a:hover {
+    background-color: #e0e0e0;
+  }
+
+
+/* Playoffs */
+#main .playoffs .multi .dribbbles > li.group {
+  width: 320px;
+}
+

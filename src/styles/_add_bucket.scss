@@ -1,0 +1,246 @@
+
+/* Add to Bucket */
+#add-to-bucket {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  visibility: hidden;
+  transition: all 0.2s ease-out;
+  opacity: 0.0;
+
+  display: flex;
+  flex-direction: column;
+}
+#add-to-bucket.active {
+  visibility: visible;
+  opacity: 1.0;
+}
+#add-to-bucket .buckets {
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  flex: 2;
+}
+#add-to-bucket .buckets li {
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  position: relative;
+  width: 46%;
+  margin: 15px 2%;
+  height: 80px;
+
+  border: none;
+  text-align: left;
+
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+
+  transition: all 0.1s ease-out;
+}
+#add-to-bucket .buckets.loading li {
+  opacity: 0.0;
+}
+#add-to-bucket .buckets li {
+  opacity: 1.0;
+}
+#add-to-bucket .buckets li .bucket-img {
+  display: block;
+  float: left;
+  width: 80px;
+  height: 60px;
+  padding: 0;
+  overflow: hidden;
+  background: #434343;
+}
+#add-to-bucket .buckets li .bucket-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  float: none;
+  background: none;
+}
+#add-to-bucket .buckets li strong {
+  display: block;
+  color: #444444;
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 100px;
+  margin-top: 8px;
+  margin-bottom: 3px;
+}
+#add-to-bucket .buckets li .bucket-meta {
+  margin: 0;
+  margin-left: 100px;
+  font-size: 13px;
+  color: #bababa;
+}
+#add-to-bucket .buckets li .bucket-meta:last-child {
+  display: none;
+}
+
+/* Bucketed */
+#add-to-bucket .buckets li.unbucketed:hover {
+  background: #eeeeee;
+}
+#add-to-bucket .buckets li.unbucketed:hover a::after {
+  opacity: 0.5;
+  visibility: visible;
+}
+#add-to-bucket .buckets li.bucketed {
+  background: #ea4b89;
+}
+#add-to-bucket .buckets li a::after {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  content: "✔";
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 2px;
+  color: #ffffff;
+  background: rgba(0,0,0,0.2);
+  opacity: 0.0;
+  visibility: hidden;
+  
+  transition: all 0.2s ease-out;
+  z-index: 10;
+}
+#add-to-bucket .buckets li.bucketed a::after {
+  visibility: visible;
+  opacity: 1.0;
+  content: "✕";
+  font-weight: bold;
+}
+#add-to-bucket .buckets li.bucketed strong {
+  color: #ffffff;
+}
+#add-to-bucket .buckets li.bucketed .bucket-meta {
+  color: #eeeeee;
+}
+
+
+/* New Bucket */
+#add-to-bucket .buckets li.newbucket {
+  background: none;
+  border: 2px dashed #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+#add-to-bucket .buckets li.newbucket:hover,
+#add-to-bucket .buckets li.newbucket.active {
+  background: rgba(255,255,255,0.1);
+}
+#add-to-bucket .buckets li.newbucket .bucket-img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 0px;
+  height: 60px;
+  visibility: hidden;
+  opacity: 0.0;
+  transition: all 0.2s ease-out;
+}
+  #add-to-bucket .buckets li.newbucket .bucket-img img {
+    width: 80px;
+    max-width: none;
+  }
+#add-to-bucket .buckets li.newbucket strong {
+  margin-left: 12px;
+  margin-top: 16px;
+  color: #ffffff;
+}
+#add-to-bucket .buckets li.newbucket form {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 9px;
+  visibility: hidden;
+  transition: all 0.2s ease-out;
+}
+#add-to-bucket .buckets li.newbucket input {
+  box-sizing: border-box;
+  width: 100%;
+  background: none;
+  color: white;
+  border: none;
+  border-bottom: 2px solid white;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 140%;
+  padding: 5px 0px;
+}
+#add-to-bucket .buckets li.newbucket input:focus {
+  border-color: white;
+  outline: none;
+}
+#add-to-bucket .buckets li.newbucket.active .bucket-img {
+  width: 80px;
+  opacity: 1.0;
+  visibility: visible;
+}
+#add-to-bucket .buckets li.newbucket.active strong {
+  display: none;
+}
+#add-to-bucket .buckets li.newbucket.active form {
+  margin-left: 100px;
+  visibility: visible;
+}
+
+
+
+#add-to-bucket .buckets::-webkit-scrollbar {
+  background: none;
+  width: 9px;
+}
+#add-to-bucket .buckets::-webkit-scrollbar-button {
+  display: none;
+}
+#add-to-bucket .buckets::-webkit-scrollbar-track {
+  display: none;
+}
+#add-to-bucket .buckets::-webkit-scrollbar-track-piece {
+  display: none;
+}
+#add-to-bucket .buckets::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0);
+  background-clip: content-box;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+#add-to-bucket .buckets::-webkit-scrollbar-corner {
+  display: none;
+}
+#add-to-bucket .buckets::-webkit-resizer {
+  display: none;
+}
+#add-to-bucket .buckets:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+  background-clip: content-box;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+#add-to-bucket .buckets:hover::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.6);
+  background-clip: content-box;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}

@@ -1,4 +1,5 @@
 var profileUrl = '', 
+    isLoggedIn = false,
     csrfToken = '',
     bucketScriptLoaded = false;
 
@@ -24,30 +25,35 @@ function setupShot($shot) {
     $bucket.find('a').attr('title', 'Add to bucket');
     $like.attr('title', 'Like this shot!');
 
-    /* Do the like via ajax */
-    $like.on('click', function(event){
-      event.preventDefault();
 
-      var $button = $(this);
-      var shot = $button.attr('href').replace('/shots/', '').replace('/fans', '');
-      var likes = parseInt( $button.text() );
+    if( isLoggedIn ) {
+      // These functions are only available to logged-in users
+      /* Do the like via ajax */
+      $like.on('click', function(event){
+        event.preventDefault();
 
-      // Todo: Use the actual like data for the like count (it comes from the ajax request)
-      if( ! $button.parent().hasClass('marked') ){
-        likeShot(shot);
-        $button.text( likes+1 ).parent().addClass('marked');
-      } else {
-        unlikeShot(shot);
-        $button.text( likes-1 ).parent().removeClass('marked');
-      }
+        var $button = $(this);
+        var shot = $button.attr('href').replace('/shots/', '').replace('/fans', '');
+        var likes = parseInt( $button.text() );
 
-    });
+        // Todo: Use the actual like data for the like count (it comes from the ajax request)
+        if( ! $button.parent().hasClass('marked') ){
+          likeShot(shot);
+          $button.text( likes+1 ).parent().addClass('marked');
+        } else {
+          unlikeShot(shot);
+          $button.text( likes-1 ).parent().removeClass('marked');
+        }
+
+      });
 
 
-    /* Add to bucket */
-    $bucket.on('click', function(event){
-      showAddBucket(shot, shotUrl);
-    });
+      /* Add to bucket */
+      $bucket.on('click', function(event){
+        event.preventDefault();
+        showAddBucket(shot, shotUrl);
+      });
+    }
 
   }
 
@@ -111,20 +117,18 @@ function unlikeShot(shot, callback) {
 
 $(document).ready(function(){
 
+  $('body').addClass('booom-loaded');
+
   // Check if the user is logged in
   var $profileTop = $('#t-profile > a');
 
-  // No user, no plugin
-  if( ! $profileTop.length ){ return; }
+  if( $profileTop.length ){
+    isLoggedIn = true;
+    profileUrl = $profileTop.attr('href');
 
-  $('body').addClass('booom-loaded');
-
-
-  profileUrl = $profileTop.attr('href');
-
-  // Get the AJAX and CSRF values
-  csrfToken = $('meta[name=csrf-token]').attr('content');
-
+    // Get the AJAX and CSRF values
+    csrfToken = $('meta[name=csrf-token]').attr('content');
+  }
 
   var $shots = $('ol.dribbbles > li');
 

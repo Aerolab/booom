@@ -1,13 +1,29 @@
+// Detect insertion of new shots and set up the @2x shots.
+$('body > .shot-overlay').bind("DOMNodeInserted", function() {
+
+  if( event.target.nodeName.toLowerCase() == 'img' ) {
+    var $img = $(event.target);
+    var $holder = $img.parent().parent();
+    if( $holder.is('.single-img') && ! $holder.hasClass('loaded') ) {
+      setupHqShot();
+      //setupSingleShot();
+    }
+  }
+
+});
+
+
 /* Setup the HQ Shot for individual shots */
 function setupHqShot() {
-  var $picture = $('div.the-shot div.single-grid div.single-img [data-picture]');
-  var picSrc = $picture.find('div[data-media]').data('src');
+  var $holder = $('div.the-shot div.single-grid div.single-img');
+  var picSrc = $holder.find('[data-picture]').find('div[data-media]').data('src');
 
   if(picSrc) {
     var $pic = $('<img src="'+ picSrc +'" class="hq" />');
-    $picture.replaceWith($pic);
+    $holder.addClass('loaded').append($pic);
   }
 }
+
 
 function setupSingleShot() {
   // Set up the Add to Bucket button
@@ -25,9 +41,11 @@ function setupSingleShot() {
 
   // Move the secondary sidebar into a more useful position
   // Todo: This should be redone with two columns, since both solutions have issues
+  /*
   var $secondary = $('body#details #content .secondary');
   $secondary.show();
   $secondary.insertAfter( $('body#details #main > .screenshot-meta') ).show();
+  */
 }
 
 
