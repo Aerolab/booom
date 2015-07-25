@@ -5,6 +5,8 @@ body {
 div.profile-dash div.profile-dash-inner,
 #header-inner, #footer-inner {
   max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -12,7 +14,7 @@ div.profile-dash div.profile-dash-inner,
 .overlay-content.group, .non-overlay.group {
   position: relative;
   width: auto;
-  max-width: 980px;
+  max-width: 1030px;
   top: auto;
   left: auto;
   margin: 0 auto;
