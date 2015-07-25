@@ -16,6 +16,7 @@ function setupShot($shot) {
   // Todo: This should be refactored.
   if( $('body').hasClass('logged-in') ){
 
+    $shot.find('li.fav a.toggle-fav').remove();
     var $like = $shot.find('li.fav a');
     var shot = $like.attr('href').replace('/shots/', '').replace('/fans', '');
     var shotUrl = $shot.find('[data-picture] [data-src]').data('src');
