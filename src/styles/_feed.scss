@@ -1,64 +1,48 @@
 
 /* Grid */
-body#home #content #main ol.dribbbles li.group,
-#main ol.dribbbles li.group,
-#main ol.collections li.group {
-  width: 32%;
-  margin: 0 2% 30px 0;
-  margin-right: 2%;
-}
-
-body#home #content #main ol.dribbbles li.group,
-#main ol.dribbbles li.group,
-#main ol.collections li.group {
-  &:nth-of-type(4n) {
+body#home #content #main, body#shots #content #main {
+  ol.dribbbles li.group,
+  ol.collections li.group {
+    width: 32%;
+    margin: 0 2% 30px 0;
     margin-right: 2%;
-  }
-  &:nth-of-type(3n) {
-    margin-right: 0;
-  }
-  &:nth-of-type(3n+1) {
-    clear: both;
-  }
-}
 
-@media screen and (max-width: 1199px) {
-  #main:not(.main-full) ol.dribbbles li.group,
-  #main:not(.main-full) ol.collections li.group {
-    width: 48%;
-    margin-right: 4%;
-  }
-  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(4n),
-  #main:not(.main-full) ol.collections li.group:nth-of-type(4n) {
-    margin-right: 4%;
-  }
-  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(3n),
-  #main:not(.main-full) ol.collections li.group:nth-of-type(3n) {
-    margin-right: 4%;
-  }
-  #main:not(.main-full) ol.dribbbles li.group:nth-of-type(2n),
-  #main:not(.main-full) ol.collections li.group:nth-of-type(2n) {
-    margin-right: 0;
+    &:nth-of-type(4n) {
+      margin-right: 2%;
+    }
+    &:nth-of-type(3n) {
+      margin-right: 0;
+    }
+    &:nth-of-type(3n+1) {
+      clear: both;
+    }
   }
 }
 
 @media screen and (max-width: 800px) {
-  #main ol.dribbbles li.group,
-  #main ol.collections li.group {
-    width: 48%;
-    margin-right: 4%;
-  }
-  #main ol.dribbbles li.group:nth-of-type(4n),
-  #main ol.collections li.group:nth-of-type(4n) {
-    margin-right: 4%;
-  }
-  #main ol.dribbbles li.group:nth-of-type(3n),
-  #main ol.collections li.group:nth-of-type(3n) {
-    margin-right: 4%;
-  }
-  #main ol.dribbbles li.group:nth-of-type(2n),
-  #main ol.collections li.group:nth-of-type(2n) {
-    margin-right: 0;
+  body#home #content #main, body#shots #content #main {
+    ol.dribbbles li.group,
+    ol.collections li.group {
+      width: 48%;
+      margin-right: 4%;
+
+      &:nth-of-type(3n+1) {
+        margin-right: 4%;
+        clear: none;
+      }
+    }
+    ol.dribbbles li.group:nth-of-type(4n),
+    ol.collections li.group:nth-of-type(4n) {
+      margin-right: 4%;
+    }
+    ol.dribbbles li.group:nth-of-type(3n),
+    ol.collections li.group:nth-of-type(3n) {
+      margin-right: 4%;
+    }
+    ol.dribbbles li.group:nth-of-type(2n),
+    ol.collections li.group:nth-of-type(2n) {
+      margin-right: 0;
+    }
   }
 }
 
